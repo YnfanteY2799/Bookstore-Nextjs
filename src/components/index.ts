@@ -10,7 +10,7 @@ export { default as ThemeSwitcher } from "./Switchers/Theme.tsx";
 /* Switchers */
 
 /* Modals */
-export { default as LoginModal } from "./Modals/Login/index.tsx";
+export { default as AuthModals } from "./Modals/index.tsx";
 export { default as AddBookModal } from "./Modals/AddBook.tsx";
 /* Modals */
 
