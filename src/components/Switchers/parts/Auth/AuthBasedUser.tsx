@@ -1,9 +1,12 @@
 "use client";
 import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, User, Button } from "@nextui-org/react";
-import { User as UserIcon } from "@phosphor-icons/react";
+import { User as UserIcon, UserPlus } from "@phosphor-icons/react";
+import { useTranslations } from "next-intl";
 import { type ReactNode } from "react";
 
 export default function AuthBasedUser(): ReactNode {
+  // Hooks
+  const t = useTranslations("Actions");
   const isLogged = false;
 
   return (
@@ -30,8 +33,12 @@ export default function AuthBasedUser(): ReactNode {
             </Button>
           </DropdownTrigger>
           <DropdownMenu aria-label="Static Actions">
-            <DropdownItem key="new">New file</DropdownItem>
-            <DropdownItem key="copy">Copy link</DropdownItem>
+            <DropdownItem key="login" endContent={<UserIcon size={18} />}>
+              {t("login")}
+            </DropdownItem>
+            <DropdownItem key="register" endContent={<UserPlus size={18} />}>
+              {t("register")}
+            </DropdownItem>
           </DropdownMenu>
         </Dropdown>
       )}

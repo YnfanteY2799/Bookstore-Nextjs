@@ -4,6 +4,10 @@
           "Langs": {
                "en": "Ingles",
                "es": "Español"
+          },
+          "Actions": {
+               "login": "Inicia Sesión",
+               "register": "Registrate"
           }
      },
      "Navbar": {
