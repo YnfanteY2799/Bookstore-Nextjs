@@ -1,30 +1,20 @@
 "use client";
+import { Input, Modal, Button, ModalBody, ModalFooter, ModalHeader, ModalContent } from "@nextui-org/react";
 import { type TLoginFS, type TRecoverFS, LoginFormSchema, RecoverFormSchema } from "@/configs";
 import { type ReactNode, type KeyboardEvent, useState, useRef } from "react";
 import { type SubmitHandler, useForm } from "react-hook-form";
-import { ResizableDiv, TextHeading } from "@/components";
+import { useLoginModal, useRegisterModal } from "@/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ArrowLeft, X } from "@phosphor-icons/react";
 import { LoginService, RestoreService } from "@/api";
+import { ResizableDiv } from "@/components";
 import { useTranslations } from "next-intl";
-import { useLoginModal } from "@/utils";
 import { toast } from "sonner";
-import {
-  Input,
-  Modal,
-  Button,
-  Checkbox,
-  ModalBody,
-  ModalFooter,
-  ModalHeader,
-  ModalContent,
-  useDisclosure,
-} from "@nextui-org/react";
 
 export default function LoginModal(): ReactNode {
   // Hooks
-  // const { isOpen, onClose, onOpenChange } = useDisclosure();
   const { onClose, isOpen } = useLoginModal((s) => s);
+  const { onOpen } = useRegisterModal((s) => s);
   const commons = useTranslations("Common");
   const t = useTranslations("Modal.Login");
 
@@ -74,6 +64,16 @@ export default function LoginModal(): ReactNode {
     });
   }
 
+  function goToAlter(): void {
+    onClose();
+    onOpen();
+  }
+
+  function formsReset(): void {
+    reset();
+    restoreReset();
+  }
+
   // Form handle
   const onSubmit: SubmitHandler<TLoginFS> = async (data) => {
     setIsLoading(true);
@@ -108,25 +108,33 @@ export default function LoginModal(): ReactNode {
   };
 
   return (
-    <Modal hideCloseButton backdrop="blur" size="md" placement="auto" isOpen={isOpen} onOpenChange={onClose}>
+    <Modal
+      hideCloseButton
+      backdrop="blur"
+      size="md"
+      placement="auto"
+      isOpen={isOpen}
+      onOpenChange={onClose}
+      onClose={formsReset}
+    >
       <ModalContent>
         {(onClose) => (
           <>
             <ModalHeader className="flex justify-between gap-2">
               {resetPassword ? (
-                <div>
+                <>
                   <Button variant="light" onPress={goBack} isIconOnly size="sm" color="primary">
                     <ArrowLeft size={20} />
                   </Button>
-                  Recover your account
+                  {t("recoverText")}
                   <Button variant="light" onPress={onClose} isIconOnly size="sm" color="danger">
                     <X size={20} />
                   </Button>
-                </div>
+                </>
               ) : (
                 <>
                   <div></div>
-                  Welcome To minimal Bookstore
+                  {t("initialText")}
                   <Button variant="light" onPress={onClose} isIconOnly size="sm" color="danger">
                     <X size={20} />
                   </Button>
@@ -138,7 +146,6 @@ export default function LoginModal(): ReactNode {
               <ResizableDiv>
                 {resetPassword ? (
                   <>
-                    <TextHeading isCenter={false} title={t("recover")} />
                     <form
                       ref={formRef}
                       onSubmit={handleRestore(onRSubmit)}
@@ -152,8 +159,8 @@ export default function LoginModal(): ReactNode {
                         variant="bordered"
                         isInvalid={!!rEmail}
                         isReadOnly={isLoading}
-                        labelPlacement="outside"
                         {...restoreRegister("email")}
+                        labelPlacement="outside"
                         label={commons("Form_Labels.email")}
                         errorMessage={rEmail && commons(`Errors.${rEmail.message}`)}
                       />
@@ -161,7 +168,6 @@ export default function LoginModal(): ReactNode {
                   </>
                 ) : (
                   <>
-                    <TextHeading isCenter={false} title={t("welcome")} />
                     <form
                       ref={formRef}
                       onSubmit={handleSubmit(onSubmit)}
@@ -197,9 +203,6 @@ export default function LoginModal(): ReactNode {
                       />
 
                       <div className="flex justify-between mx-[2px] pt-1">
-                        <Checkbox id="remember" radius="md">
-                          {t("remember")}
-                        </Checkbox>
                         <p onClick={goRestore} className="hover:text-primary hover:underline hover:cursor-pointer">
                           {t("forgot")}
                         </p>
@@ -222,9 +225,22 @@ export default function LoginModal(): ReactNode {
               >
                 {resetPassword ? t("recover") : t("login")}
               </Button>
+
+              <div className="flex my-3 items-center text-center">
+                <hr className="border-default border-1 w-full rounded-md" />
+                <label className="block font-medium text-sm w-full">{t("or")}</label>
+                <hr className="border-default border-1 w-full rounded-md" />
+              </div>
+
               <div className="text-center">
                 <div className="flex flex-row items-center justify-center gap-2 cursor-pointer text-sm">
                   <p>{t("notAccountYet")}</p>
+                  <p
+                    onClick={goToAlter}
+                    className="dark:text-neutral-500 dark:hover:text-primary hover:underline text-secondary cursor-pointer hover:text-primary"
+                  >
+                    {t("register")}
+                  </p>
                 </div>
               </div>
             </ModalFooter>
