@@ -1,5 +1,6 @@
 /* Providers */
 export { default as ThemeProvider } from "./Providers/ThemeProvider.tsx";
+export { default as ResizableDiv } from "./Providers/ResizableDiv.tsx";
 /* Providers */
 
 /* Switchers */
