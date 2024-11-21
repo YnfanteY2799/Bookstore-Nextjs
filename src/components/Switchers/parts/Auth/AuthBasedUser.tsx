@@ -1,7 +1,7 @@
 "use client";
-import { useLoginModal, useRegisterModal } from "@/utils";
 import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, User, Button } from "@nextui-org/react";
 import { SignOut, User as UserIcon, UserPlus, UserSquare } from "@phosphor-icons/react";
+import { useLoginModal, useRegisterModal } from "@/utils/client";
 import { useTranslations } from "next-intl";
 import { type ReactNode } from "react";
 

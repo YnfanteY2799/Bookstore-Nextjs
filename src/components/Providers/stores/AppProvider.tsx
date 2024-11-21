@@ -1,9 +1,8 @@
 "use client";
 
 import { type ReactNode, createContext, useRef, useContext } from "react";
+import { type CounterStore, createCounterStore } from "@/utils/client";
 import { useStore } from "zustand";
-
-import { type CounterStore, createCounterStore } from "@/utils";
 
 export type CounterStoreApi = ReturnType<typeof createCounterStore>;
 

@@ -2,8 +2,8 @@
 import { Input, Modal, Button, ModalBody, ModalFooter, ModalHeader, ModalContent } from "@nextui-org/react";
 import { type TLoginFS, type TRecoverFS, LoginFormSchema, RecoverFormSchema } from "@/configs";
 import { type ReactNode, type KeyboardEvent, useState, useRef } from "react";
+import { useLoginModal, useRegisterModal } from "@/utils/client";
 import { type SubmitHandler, useForm } from "react-hook-form";
-import { useLoginModal, useRegisterModal } from "@/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ArrowLeft, X } from "@phosphor-icons/react";
 import { LoginService, RestoreService } from "@/api";

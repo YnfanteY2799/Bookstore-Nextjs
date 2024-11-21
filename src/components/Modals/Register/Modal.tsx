@@ -2,8 +2,8 @@
 import { Input, Button, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader } from "@nextui-org/react";
 import { RegisterModalFormSchema, TypeRegisterMFS } from "@/configs";
 import { type ReactNode, type KeyboardEvent, useRef } from "react";
+import { useLoginModal, useRegisterModal } from "@/utils/client";
 import { type SubmitHandler, useForm } from "react-hook-form";
-import { useLoginModal, useRegisterModal } from "@/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl";
 import { ResizableDiv } from "@/components";

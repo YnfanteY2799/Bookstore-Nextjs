@@ -1,8 +1,7 @@
 "use client";
-import { Card, CardBody, CardHeader, Image } from "@nextui-org/react";
 import { AddBookModal, BookCard, Filters, FilterSearchbar } from "@/components";
 import { type ReactNode, useState } from "react";
-import { books } from "@/utils/consts";
+import { books } from "@/utils/client";
 
 export default function HomeComponent(): ReactNode {
   const [filteredBooks, setFilteredBooks] = useState(books);

@@ -1,4 +1,4 @@
-import { cn } from "@/utils";
+import { cn } from "@/utils/client";
 
 import type { ReactNode } from "react";
 import type { ITextHeadingProps } from "@/types";
