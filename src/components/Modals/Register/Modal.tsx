@@ -21,12 +21,12 @@ export default function RegisterModal(): ReactNode {
 
   // RHF
   const { handleSubmit, reset, formState, register } = useForm<TypeRegisterMFS>({
-    defaultValues: { email: "", phoneNumber: "" },
+    defaultValues: { email: "", username: "", password: "" },
     resolver: zodResolver(RegisterModalFormSchema),
   });
 
   // Destructuring Error
-  const { email, phoneNumber } = formState.errors;
+  const { email, password, username } = formState.errors;
 
   // Functions
   function handleSyntheticSubmit(): void {
@@ -44,8 +44,8 @@ export default function RegisterModal(): ReactNode {
   }
 
   // Form handle
-  const onSubmit: SubmitHandler<TypeRegisterMFS> = async ({ email, phoneNumber }) => {
-    const encodedData = encodeURIComponent(`${email}||${phoneNumber}`);
+  const onSubmit: SubmitHandler<TypeRegisterMFS> = async ({ email, password, username }) => {
+    const encodedData = encodeURIComponent(`${email}||${password}`);
 
     onClose();
   };
@@ -72,6 +72,18 @@ export default function RegisterModal(): ReactNode {
                   <Input
                     size="lg"
                     radius="md"
+                    type="text"
+                    maxLength={254}
+                    variant="bordered"
+                    isInvalid={!!username}
+                    labelPlacement="outside"
+                    {...register("username")}
+                    label={commons("Form_Labels.username")}
+                    errorMessage={username ? commons(`Errors.${username.message}`) : ""}
+                  />
+                  <Input
+                    size="lg"
+                    radius="md"
                     type="email"
                     maxLength={254}
                     variant="bordered"
@@ -88,17 +100,17 @@ export default function RegisterModal(): ReactNode {
                     maxLength={254}
                     variant="bordered"
                     labelPlacement="outside"
-                    isInvalid={!!phoneNumber}
-                    {...register("phoneNumber")}
-                    label={commons("Form_Labels.phone_number")}
-                    errorMessage={phoneNumber ? commons(`Errors.${phoneNumber.message}`) : ""}
+                    isInvalid={!!password}
+                    {...register("password")}
+                    label={commons("Form_Labels.password")}
+                    errorMessage={password ? commons(`Errors.${password.message}`) : ""}
                   />
                 </form>
               </ResizableDiv>
             </ModalBody>
             <ModalFooter className="flex flex-col gap-4">
               <Button size="md" type="submit" color="primary" className="w-full" onPress={handleSyntheticSubmit}>
-                {t("continue")}
+                {t("register")}
               </Button>
 
               <div className="flex my-3 items-center text-center">

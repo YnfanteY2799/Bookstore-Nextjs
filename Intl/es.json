@@ -17,24 +17,15 @@
           },
           "Errors": {
                "emerror": "Porfavor provea un Correo Electrónico valido!",
-               "pnerror": "Porfavor provea un Numero Telefonico valido!",
                "pwerror": "La contraseña provista no es valida",
-               "flnerror": "Porfavor provea un Nombre valido",
-               "fnerror": "Porfavor provea un Nombre valido",
-               "lnerror": "Porfavor provea un Apellido valido",
-               "nacerror": "Porfavor provea una Nacionalidad valida",
                "pwnomatcherror": "Las contraseñas no coinciden"
           },
           "Form_Labels": {
                "confirm_email": "Confirma el correo electrónico",
                "RegisterInfoTitle": "Informacion del Registro!",
                "confirm_password": "Confirma la contraseña",
-               "phone_number": "Número de teléfono",
-               "full_name": "Nombre Completo",
+               "username": "Nombre de usuario",
                "email": "Correo Electrónico",
-               "nationality": "Nacionalidad",
-               "last_name": "Apellidos",
-               "first_name": "Nombres",
                "password": "Contraseña"
           }
      },
@@ -57,6 +48,7 @@
                "continueGoogle": "Continua con Google",
                "welcome": "Bienvenido a tu libreria!",
                "initialText": "Regístrate",
+               "register": "Registrate!",
                "login": "Inicia Sesión!",
                "continue": "Continuar!",
                "or": "O"

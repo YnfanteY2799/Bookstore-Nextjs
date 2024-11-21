@@ -16,24 +16,14 @@
                "welcome": "Welcome Back {username} !"
           },
           "Errors": {
-               "pnerror": "Please provide a valid Phone Number!",
+               "pwnomatcherror": "The Provided Passwords do not Match",
                "pwerror": "The provided password is not valid!",
-               "flnerror": "Please provide a valid Full Name!",
-               "emerror": "Please provide a valid Email!",
-               "fnerror": "Please provide a valid First Name!",
-               "lnerror": "Please provide a valid Last Name!",
-               "nacerror": "Please provide a valid Nacionality!",
-               "pwnomatcherror": "The Provided Passwords do not Match"
+               "emerror": "Please provide a valid Email!"
           },
           "Form_Labels": {
                "RegisterInfoTitle": "Registration Info!",
                "confirm_password": "Confirm Password",
-               "confirm_email": "Confirm Email",
-               "phone_number": "Phone Number",
-               "nationality": "Nationality",
-               "first_name": "First Name",
-               "full_name": "Full Name",
-               "last_name": "Last Name",
+               "username": "Username",
                "password": "Password",
                "email": "Email"
           }
@@ -55,6 +45,7 @@
                "alreadyAccount": "Already have an Account ?",
                "welcome": "Welcome to your Bookstore",
                "initialText": "Register",
+               "register": "Register!",
                "continue": "Continue!",
                "login": "Login!",
                "or": "Or"
