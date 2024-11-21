@@ -13,7 +13,9 @@
           },
           "Actions": {
                "login": "Log in",
-               "register": "Register"
+               "register": "Register",
+               "myProfile": "My Profile",
+               "logOut": "Log Out"
           }
      },
      "Status": {

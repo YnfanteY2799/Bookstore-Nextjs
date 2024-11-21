@@ -1,6 +1,6 @@
 "use client";
 import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, User, Button } from "@nextui-org/react";
-import { User as UserIcon, UserPlus } from "@phosphor-icons/react";
+import { SignOut, User as UserIcon, UserPlus, UserSquare } from "@phosphor-icons/react";
 import { useTranslations } from "next-intl";
 import { type ReactNode } from "react";
 
@@ -20,9 +20,13 @@ export default function AuthBasedUser(): ReactNode {
               avatarProps={{ size: "sm", src: "https://i.pravatar.cc/150?u=a04258114e29026702d" }}
             />
           </DropdownTrigger>
-          <DropdownMenu aria-label="Static Actions">
-            <DropdownItem key="new">New file</DropdownItem>
-            <DropdownItem key="copy">Copy link</DropdownItem>
+          <DropdownMenu aria-label="Static Actions" color="primary" variant="bordered">
+            <DropdownItem key="myProfile" color="success" endContent={<UserSquare size={18} />}>
+              {t("myProfile")}
+            </DropdownItem>
+            <DropdownItem key="logOut" color="danger" endContent={<SignOut size={18} />}>
+              {t("logOut")}
+            </DropdownItem>
           </DropdownMenu>
         </Dropdown>
       ) : (
@@ -32,11 +36,11 @@ export default function AuthBasedUser(): ReactNode {
               <UserIcon size={18} />
             </Button>
           </DropdownTrigger>
-          <DropdownMenu aria-label="Static Actions">
-            <DropdownItem key="login" endContent={<UserIcon size={18} />}>
+          <DropdownMenu aria-label="Static Actions" variant="bordered">
+            <DropdownItem key="login" color="primary" endContent={<UserIcon size={18} />}>
               {t("login")}
             </DropdownItem>
-            <DropdownItem key="register" endContent={<UserPlus size={18} />}>
+            <DropdownItem key="register" color="warning" endContent={<UserPlus size={18} />}>
               {t("register")}
             </DropdownItem>
           </DropdownMenu>

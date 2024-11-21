@@ -7,7 +7,9 @@
           },
           "Actions": {
                "login": "Inicia Sesión",
-               "register": "Registrate"
+               "register": "Registrate",
+               "myProfile": "Mi Perfil",
+               "logOut": "Cerrar Sesión"
           }
      },
      "Navbar": {
