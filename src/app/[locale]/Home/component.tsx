@@ -1,6 +1,6 @@
 "use client";
 import { Card, CardBody, CardHeader, Image } from "@nextui-org/react";
-import { AddBookModal, BookCard, Filters } from "@/components";
+import { AddBookModal, BookCard, Filters, FilterSearchbar } from "@/components";
 import { type ReactNode, useState } from "react";
 
 const books = [
@@ -24,6 +24,7 @@ export default function HomeComponent(): ReactNode {
           <p className="text-3xl font-bold">Featured Books</p>
 
           <div className="flex gap-2">
+            <FilterSearchbar />
             <Filters onFilter={onFilter} />
             <AddBookModal />
           </div>
