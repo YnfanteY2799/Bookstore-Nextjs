@@ -1,6 +1,7 @@
 "use client";
-
-import { useState } from "react";
+import { Card, CardBody, CardHeader, Image } from "@nextui-org/react";
+import { type ReactNode, useState } from "react";
+import { Filters } from "@/components";
 
 const books = [
   { id: 1, title: "The Great Gatsby", author: "F. Scott Fitzgerald", price: 10.99, category: "Classic" },
@@ -13,7 +14,7 @@ const books = [
 
 const categories = ["Classic", "Fiction", "Science Fiction", "Romance"];
 
-export default function HomePage() {
+export default function HomePage(): ReactNode {
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [priceRange, setPriceRange] = useState([0, 20]);
 
@@ -24,55 +25,32 @@ export default function HomePage() {
       book.price <= priceRange[1]
   );
 
+  function onFilter(key?: any) {}
+
   return (
     <main className="flex-grow container mx-auto px-4 py-8 flex">
-      <aside className="w-64 mr-8">
-        <h2 className="text-xl font-semibold mb-4">Filters</h2>
-        <div className="mb-6">
-          <h3 className="text-lg font-medium mb-2">Categories</h3>
-          {categories.map((category) => (
-            <div key={category} className="flex items-center mb-2">
-              {/* <div
-                  id={category}
-                  checked={selectedCategories.includes(category)}
-                  onCheckedChange={(checked) => {
-                    setSelectedCategories(
-                      checked ? [...selectedCategories, category] : selectedCategories.filter((c) => c !== category)
-                    );
-                  }}
-                /> */}
-              <label
-                htmlFor={category}
-                className="ml-2 text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-              >
-                {category}
-              </label>
-            </div>
-          ))}
+      <div className="flex-grow justify-center">
+        <div className="mb-8 flex justify-between">
+          <p className="text-3xl font-bold">Featured Books</p>
+          <Filters onFilter={onFilter} />
         </div>
-        <div>
-          <h3 className="text-lg font-medium mb-2">Price Range</h3>
-          {/* <Slider min={0} max={20} step={1} value={priceRange} onValueChange={setPriceRange} className="mb-2" /> */}
-          <p className="text-sm text-gray-600">
-            ${priceRange[0]} - ${priceRange[1]}
-          </p>
-        </div>
-      </aside>
-      <div className="flex-grow">
-        <h1 className="text-3xl font-bold mb-8">Featured Books</h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-6">
           {filteredBooks.map((book) => (
-            <div key={book.id} className="flex flex-col justify-between">
-              <div className="pt-4">
-                <h2 className="text-xl font-semibold mb-2">{book.title}</h2>
-                <p className="text-sm text-gray-600 mb-2">{book.author}</p>
-                <p className="text-lg font-bold">${book.price.toFixed(2)}</p>
-                <p className="text-sm text-gray-600">{book.category}</p>
-              </div>
-              <div>
-                <button className="w-full">Add to Cart</button>
-              </div>
-            </div>
+            <Card className="py-4" key={book.id} isPressable>
+              <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
+                <Image
+                  width={270}
+                  alt="Card background"
+                  className="object-cover rounded-xl w-full"
+                  src="https://nextui.org/images/hero-card-complete.jpeg"
+                />
+              </CardHeader>
+              <CardBody className="overflow-visible py-2">
+                <p className="text-tiny uppercase font-bold">Daily Mix</p>
+                <small className="text-default-500">12 Tracks</small>
+                <h4 className="font-bold text-large">Frontend Radio</h4>
+              </CardBody>
+            </Card>
           ))}
         </div>
       </div>

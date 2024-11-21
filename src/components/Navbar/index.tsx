@@ -6,22 +6,18 @@ export default function Navbar(): ReactNode {
   return (
     <header className="border-b">
       <nav className="container mx-auto px-4 py-4 flex justify-between items-center">
+        
         <Link href="/" className="text-2xl font-bold">
           Minimalist Books
         </Link>
+
+
+
         <div className="space-x-4">
           <Link href="/" className="text-sm hover:underline">
             Home
           </Link>
-          <Link href="#" className="text-sm hover:underline">
-            Categories
-          </Link>
-          <Link href="#" className="text-sm hover:underline">
-            About
-          </Link>
-          <Link href="#" className="text-sm hover:underline">
-            Contact
-          </Link>
+          
         </div>
       </nav>
     </header>
