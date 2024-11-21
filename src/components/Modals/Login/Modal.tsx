@@ -2,11 +2,12 @@
 import { type TLoginFS, type TRecoverFS, LoginFormSchema, RecoverFormSchema } from "@/configs";
 import { type ReactNode, type KeyboardEvent, useState, useRef } from "react";
 import { type SubmitHandler, useForm } from "react-hook-form";
-import { ArrowLeft, User, X } from "@phosphor-icons/react";
 import { ResizableDiv, TextHeading } from "@/components";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { ArrowLeft, X } from "@phosphor-icons/react";
 import { LoginService, RestoreService } from "@/api";
 import { useTranslations } from "next-intl";
+import { useLoginModal } from "@/utils";
 import { toast } from "sonner";
 import {
   Input,
@@ -22,7 +23,8 @@ import {
 
 export default function LoginModal(): ReactNode {
   // Hooks
-  const { isOpen, onClose, onOpenChange } = useDisclosure();
+  // const { isOpen, onClose, onOpenChange } = useDisclosure();
+  const { onClose, isOpen } = useLoginModal((s) => s);
   const commons = useTranslations("Common");
   const t = useTranslations("Modal.Login");
 
@@ -106,134 +108,129 @@ export default function LoginModal(): ReactNode {
   };
 
   return (
-    <>
-      <Button color="primary" variant="light" isIconOnly size="sm" onPress={onOpenChange}>
-        <User size={20} />
-      </Button>
-      <Modal hideCloseButton backdrop="blur" size="md" placement="auto" isOpen={isOpen} onOpenChange={onClose}>
-        <ModalContent>
-          {(onClose) => (
-            <>
-              <ModalHeader className="flex justify-between gap-2">
+    <Modal hideCloseButton backdrop="blur" size="md" placement="auto" isOpen={isOpen} onOpenChange={onClose}>
+      <ModalContent>
+        {(onClose) => (
+          <>
+            <ModalHeader className="flex justify-between gap-2">
+              {resetPassword ? (
+                <div>
+                  <Button variant="light" onPress={goBack} isIconOnly size="sm" color="primary">
+                    <ArrowLeft size={20} />
+                  </Button>
+                  Recover your account
+                  <Button variant="light" onPress={onClose} isIconOnly size="sm" color="danger">
+                    <X size={20} />
+                  </Button>
+                </div>
+              ) : (
+                <>
+                  <div></div>
+                  Welcome To minimal Bookstore
+                  <Button variant="light" onPress={onClose} isIconOnly size="sm" color="danger">
+                    <X size={20} />
+                  </Button>
+                </>
+              )}
+            </ModalHeader>
+
+            <ModalBody className="flex flex-col gap-[2px]" onKeyDown={enterSubmit}>
+              <ResizableDiv>
                 {resetPassword ? (
                   <>
-                    <Button variant="light" onPress={goBack} isIconOnly size="sm" color="primary">
-                      <ArrowLeft size={20} />
-                    </Button>
-                    Recover your account
-                    <Button variant="light" onPress={onClose} isIconOnly size="sm" color="danger">
-                      <X size={20} />
-                    </Button>
+                    <TextHeading isCenter={false} title={t("recover")} />
+                    <form
+                      ref={formRef}
+                      onSubmit={handleRestore(onRSubmit)}
+                      className="flex flex-col gap-[8px] transition-height"
+                    >
+                      <Input
+                        size="lg"
+                        radius="md"
+                        type="email"
+                        maxLength={100}
+                        variant="bordered"
+                        isInvalid={!!rEmail}
+                        isReadOnly={isLoading}
+                        labelPlacement="outside"
+                        {...restoreRegister("email")}
+                        label={commons("Form_Labels.email")}
+                        errorMessage={rEmail && commons(`Errors.${rEmail.message}`)}
+                      />
+                    </form>
                   </>
                 ) : (
                   <>
-                    <div></div>
-                    Welcome To minimal Bookstore
-                    <Button variant="light" onPress={onClose} isIconOnly size="sm" color="danger">
-                      <X size={20} />
-                    </Button>
+                    <TextHeading isCenter={false} title={t("welcome")} />
+                    <form
+                      ref={formRef}
+                      onSubmit={handleSubmit(onSubmit)}
+                      className="flex flex-col gap-[8px] transition-height"
+                    >
+                      <Input
+                        size="lg"
+                        radius="md"
+                        type="email"
+                        maxLength={100}
+                        variant="bordered"
+                        isInvalid={!!email}
+                        autoComplete="email"
+                        {...register("email")}
+                        isReadOnly={isLoading}
+                        labelPlacement="outside"
+                        label={commons("Form_Labels.email")}
+                        errorMessage={email && commons(`Errors.${email.message}`)}
+                      />
+                      <Input
+                        size="lg"
+                        radius="md"
+                        type="password"
+                        maxLength={100}
+                        variant="bordered"
+                        isReadOnly={isLoading}
+                        isInvalid={!!password}
+                        autoComplete="password"
+                        labelPlacement="outside"
+                        {...register("password")}
+                        label={commons("Form_Labels.password")}
+                        errorMessage={password && commons(`Errors.${password.message}`)}
+                      />
+
+                      <div className="flex justify-between mx-[2px] pt-1">
+                        <Checkbox id="remember" radius="md">
+                          {t("remember")}
+                        </Checkbox>
+                        <p onClick={goRestore} className="hover:text-primary hover:underline hover:cursor-pointer">
+                          {t("forgot")}
+                        </p>
+                      </div>
+                    </form>
                   </>
                 )}
-              </ModalHeader>
+              </ResizableDiv>
+            </ModalBody>
 
-              <ModalBody className="flex flex-col gap-[2px]" onKeyDown={enterSubmit}>
-                <ResizableDiv>
-                  {resetPassword ? (
-                    <>
-                      <TextHeading isCenter={false} title={t("recover")} />
-                      <form
-                        ref={formRef}
-                        onSubmit={handleRestore(onRSubmit)}
-                        className="flex flex-col gap-[8px] transition-height"
-                      >
-                        <Input
-                          size="lg"
-                          radius="md"
-                          type="email"
-                          maxLength={100}
-                          variant="bordered"
-                          isInvalid={!!rEmail}
-                          isReadOnly={isLoading}
-                          labelPlacement="outside"
-                          {...restoreRegister("email")}
-                          label={commons("Form_Labels.email")}
-                          errorMessage={rEmail && commons(`Errors.${rEmail.message}`)}
-                        />
-                      </form>
-                    </>
-                  ) : (
-                    <>
-                      <TextHeading isCenter={false} title={t("welcome")} />
-                      <form
-                        ref={formRef}
-                        onSubmit={handleSubmit(onSubmit)}
-                        className="flex flex-col gap-[8px] transition-height"
-                      >
-                        <Input
-                          size="lg"
-                          radius="md"
-                          type="email"
-                          maxLength={100}
-                          variant="bordered"
-                          isInvalid={!!email}
-                          autoComplete="email"
-                          {...register("email")}
-                          isReadOnly={isLoading}
-                          labelPlacement="outside"
-                          label={commons("Form_Labels.email")}
-                          errorMessage={email && commons(`Errors.${email.message}`)}
-                        />
-                        <Input
-                          size="lg"
-                          radius="md"
-                          type="password"
-                          maxLength={100}
-                          variant="bordered"
-                          isReadOnly={isLoading}
-                          isInvalid={!!password}
-                          autoComplete="password"
-                          labelPlacement="outside"
-                          {...register("password")}
-                          label={commons("Form_Labels.password")}
-                          errorMessage={password && commons(`Errors.${password.message}`)}
-                        />
-
-                        <div className="flex justify-between mx-[2px] pt-1">
-                          <Checkbox id="remember" radius="md">
-                            {t("remember")}
-                          </Checkbox>
-                          <p onClick={goRestore} className="hover:text-primary hover:underline hover:cursor-pointer">
-                            {t("forgot")}
-                          </p>
-                        </div>
-                      </form>
-                    </>
-                  )}
-                </ResizableDiv>
-              </ModalBody>
-
-              <ModalFooter className="flex flex-col gap-4">
-                <Button
-                  size="md"
-                  type="submit"
-                  color="primary"
-                  className="w-full"
-                  isLoading={isLoading}
-                  isDisabled={isLoading}
-                  onPress={handleSyntheticSubmit}
-                >
-                  {resetPassword ? t("recover") : t("login")}
-                </Button>
-                <div className="text-center">
-                  <div className="flex flex-row items-center justify-center gap-2 cursor-pointer text-sm">
-                    <p>{t("notAccountYet")}</p>
-                  </div>
+            <ModalFooter className="flex flex-col gap-4">
+              <Button
+                size="md"
+                type="submit"
+                color="primary"
+                className="w-full"
+                isLoading={isLoading}
+                isDisabled={isLoading}
+                onPress={handleSyntheticSubmit}
+              >
+                {resetPassword ? t("recover") : t("login")}
+              </Button>
+              <div className="text-center">
+                <div className="flex flex-row items-center justify-center gap-2 cursor-pointer text-sm">
+                  <p>{t("notAccountYet")}</p>
                 </div>
-              </ModalFooter>
-            </>
-          )}
-        </ModalContent>
-      </Modal>
-    </>
+              </div>
+            </ModalFooter>
+          </>
+        )}
+      </ModalContent>
+    </Modal>
   );
 }
