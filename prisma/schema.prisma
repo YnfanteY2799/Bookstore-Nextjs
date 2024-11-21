@@ -14,14 +14,14 @@ datasource db {
 }
 
 model User {
-  id              Int       @id @default(autoincrement()) @db.Integer
-  username        String    @db.VarChar(255)
-  email           String    @unique @db.VarChar(255)
-  verified_email  Boolean   @default(false) @db.Boolean
-  hashed_password String    @db.VarChar(255)
-  favorite_books  Book[]
-  create_time     DateTime? @default(now()) @db.Date
-  update_time     DateTime? @db.Date
+  id              Int                 @id @default(autoincrement()) @db.Integer
+  username        String              @unique @db.VarChar(255)
+  email           String              @unique @db.VarChar(255)
+  verified_email  Boolean             @default(false) @db.Boolean
+  hashed_password String              @db.VarChar(255)
+  favorite_books  UserFavoriteBooks[]
+  create_time     DateTime?           @default(now()) @db.Date
+  update_time     DateTime?           @db.Date
 }
 
 model Authors {
@@ -43,19 +43,29 @@ model Genre {
 }
 
 model Book {
-  id          Int       @id @default(autoincrement()) @db.Integer
-  title       String    @db.VarChar(255)
+  id          Int                 @id @default(autoincrement()) @db.Integer
+  title       String              @db.VarChar(255)
   year        DateTime
   coverImage  String?
-  totalRating Int       @default(0)
-  author_id   Int       @db.Integer
-  genres_ids  Int       @db.Integer
+  totalRating Int                 @default(0)
+  author_id   Int                 @db.Integer
+  genres_ids  Int                 @db.Integer
+  create_time DateTime?           @default(now()) @db.Date
+  update_time DateTime?           @db.Date
+  Authors     Authors             @relation(fields: [author_id], references: [id], onDelete: Cascade)
+  Genres      Genre               @relation(fields: [genres_ids], references: [id], onDelete: Cascade)
+  Reviews     Reviews[]
+  FavoritedBy UserFavoriteBooks[]
+}
+
+model UserFavoriteBooks {
+  id          Int       @id @default(autoincrement()) @db.Integer
+  user_id     Int       @db.Integer
+  book_id     Int       @db.Integer
   create_time DateTime? @default(now()) @db.Date
   update_time DateTime? @db.Date
-  Authors     Authors   @relation(fields: [author_id], references: [id], onDelete: Cascade)
-  Genres      Genre     @relation(fields: [genres_ids], references: [id], onDelete: Cascade)
-  User        User[]
-  Reviews     Reviews[]
+  User        User      @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  Book        Book      @relation(fields: [book_id], references: [id], onDelete: Cascade)
 }
 
 model Reviews {
