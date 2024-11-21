@@ -17,7 +17,6 @@ export default function Navbar(): ReactNode {
           <AuthBasedUser />
         </div>
       </nav>
-
       <AuthModals />
     </header>
   );
