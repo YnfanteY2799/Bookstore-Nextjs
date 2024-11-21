@@ -1,7 +1,8 @@
 import type { ReactElement } from "react";
-import type { IGenericIconSvg } from "@/types/client";
 
-export default function SpainFlag({ size = 24, className }: IGenericIconSvg): ReactElement {
+import type { IGenericIconSvg } from "@/types";
+
+export default function SpainFlag({ size = 20, className }: IGenericIconSvg): ReactElement {
   return (
     <svg
       x="0px"

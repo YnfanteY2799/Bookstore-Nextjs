@@ -1,18 +1,18 @@
 import type { ReactElement } from "react";
-import type { IGenericIconSvg } from "@/types/client";
+import type { IGenericIconSvg } from "@/types";
 
-export default function SpainFlag({ size = 24, className }: IGenericIconSvg): ReactElement {
+export default function SpainFlag({ size = 20, className }: IGenericIconSvg): ReactElement {
   return (
     <svg
+      role="img"
       width={size}
       height={size}
-      className={className}
-      viewBox="0 0 36 36"
-      xmlns="http://www.w3.org/2000/svg"
-      xmlnsXlink="http://www.w3.org/1999/xlink"
       aria-hidden="true"
-      role="img"
+      viewBox="0 0 36 36"
+      className={className}
+      xmlns="http://www.w3.org/2000/svg"
       preserveAspectRatio="xMidYMid meet"
+      xmlnsXlink="http://www.w3.org/1999/xlink"
     >
       <path fill="#C60A1D" d="M36 27a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V9a4 4 0 0 1 4-4h28a4 4 0 0 1 4 4v18z"></path>
       <path fill="#FFC400" d="M0 12h36v12H0z"></path>

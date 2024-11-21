@@ -21,7 +21,7 @@ export default function LangSelectSwitcher(): ReactNode {
   return (
     <Dropdown>
       <DropdownTrigger>
-        <Button variant="light" size="sm" className="capitalize" isIconOnly isDisabled={isPending}>
+        <Button variant="light" size="sm" className="capitalize" isIconOnly isDisabled={isPending} >
           <FlagIcons name={locale} />
         </Button>
       </DropdownTrigger>

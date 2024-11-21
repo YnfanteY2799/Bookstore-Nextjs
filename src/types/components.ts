@@ -20,3 +20,8 @@ export interface ITextHeadingProps {
   subTitle?: string;
   isCenter?: boolean;
 }
+
+export interface IGenericIconSvg {
+  size?: number;
+  className?: string;
+}
