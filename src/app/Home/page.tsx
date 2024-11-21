@@ -13,8 +13,6 @@ const books = [
   { id: 6, title: "Moby-Dick", author: "Herman Melville", price: 13.99, category: "Classic" },
 ];
 
-const categories = ["Classic", "Fiction", "Science Fiction", "Romance"];
-
 export default function HomePage(): ReactNode {
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [priceRange, setPriceRange] = useState([0, 20]);
