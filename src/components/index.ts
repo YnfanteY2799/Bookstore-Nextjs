@@ -17,7 +17,6 @@ export { default as LoginModal } from "./Modals/Login/Modal.tsx";
 /* Svgs */
 export { default as NortAmericanFlag } from "./svg/NortAmericanFlag.tsx";
 export { default as SpainFlag } from "./svg/SpainFlag.tsx";
-
 /* Svgs */
 
 /* UI => This components cannot be set separated on their own folder due to their simplisiness */
