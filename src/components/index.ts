@@ -21,6 +21,7 @@ export { default as SpainFlag } from "./svg/SpainFlag.tsx";
 
 /* UI => This components cannot be set separated on their own folder due to their simplisiness */
 export { default as TextHeading } from "./ui/TextHeading.tsx";
+export { default as BookCard } from "./ui/BookCard.tsx";
 export { default as Filters } from "./ui/Filters.tsx";
 export { default as Footer } from "./ui/Footer.tsx";
 export { default as Navbar } from "./ui/Navbar.tsx";

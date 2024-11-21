@@ -1,6 +1,6 @@
 "use client";
 import { Card, CardBody, CardHeader, Image } from "@nextui-org/react";
-import { AddBookModal, Filters } from "@/components";
+import { AddBookModal, BookCard, Filters } from "@/components";
 import { type ReactNode, useState } from "react";
 
 const books = [
@@ -30,22 +30,7 @@ export default function HomeComponent(): ReactNode {
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-6">
           {filteredBooks.map((book) => (
-            <Card className="py-4" key={book.id} isPressable>
-              <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
-                <Image
-                  width={570}
-                  alt="Card background"
-                  className="object-cover rounded-xl w-full"
-                  src="https://nextui.org/images/hero-card-complete.jpeg"
-                />
-              </CardHeader>
-              <CardBody className="overflow-visible py-2 ml-4 text-left">
-                <h4 className="font-bold text-large">Frontend Radio</h4>
-                <p className="text-tiny uppercase font-bold">Daily Mix</p>
-                <small className="text-default-500">12 Tracks</small>
-                <small className="text-default-400">12 Tracks</small>
-              </CardBody>
-            </Card>
+            <BookCard Book={book} key={book.id} />
           ))}
         </div>
       </div>
