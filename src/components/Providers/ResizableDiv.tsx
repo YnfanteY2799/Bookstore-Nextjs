@@ -1,5 +1,5 @@
 "use client";
-import { useMeasure } from "@/utils/client";
+import { useMeasure } from "@/utils";
 import { motion } from "framer-motion";
 
 import type { IBaseComponent } from "@/types/client";

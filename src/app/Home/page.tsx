@@ -1,4 +1,5 @@
 "use client";
+
 import { Card, CardBody, CardHeader, Image } from "@nextui-org/react";
 import { type ReactNode, useState } from "react";
 import { Filters } from "@/components";

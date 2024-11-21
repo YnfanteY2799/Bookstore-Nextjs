@@ -3,7 +3,7 @@
 import { type ReactNode, createContext, useRef, useContext } from "react";
 import { useStore } from "zustand";
 
-import { type CounterStore, createCounterStore } from "@/utils/client";
+import { type CounterStore, createCounterStore } from "@/utils";
 
 export type CounterStoreApi = ReturnType<typeof createCounterStore>;
 
@@ -22,9 +22,7 @@ export const CounterStoreProvider = ({ children }: CounterStoreProviderProps) =>
 export const useCounterStore = <T,>(selector: (store: CounterStore) => T): T => {
   const counterStoreContext = useContext(CounterStoreContext);
 
-  if (!counterStoreContext) {
-    throw new Error(`useCounterStore must be used within CounterStoreProvider`);
-  }
+  if (!counterStoreContext) throw new Error(`useCounterStore must be used within CounterStoreProvider`);
 
   return useStore(counterStoreContext, selector);
 };
