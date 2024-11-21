@@ -10,7 +10,12 @@ const nextConfig: NextConfig = withNextIntl({
     {
       source: "/",
       permanent: true,
-      destination: "/Home",
+      destination: "/en/Home",
+    },
+    {
+      source: "/Home",
+      permanent: true,
+      destination: "/en/Home",
     },
   ],
 });

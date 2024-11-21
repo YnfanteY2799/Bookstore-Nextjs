@@ -1,5 +1,7 @@
 "use server";
 
-export async function LoginService(): Promise<any> {}
+import type { TLoginFS, TRecoverFS } from "@/configs";
 
-export async function RestoreService(): Promise<any> {}
+export async function LoginService(data: TLoginFS): Promise<any> {}
+
+export async function RestoreService(data: TRecoverFS): Promise<any> {}

@@ -1,11 +1,12 @@
 "use client";
 import { type TLoginFS, type TRecoverFS, LoginFormSchema, RecoverFormSchema } from "@/configs";
-import { type ReactNode, type KeyboardEvent, useState, useRef, useEffect } from "react";
+import { type ReactNode, type KeyboardEvent, useState, useRef } from "react";
 import { type SubmitHandler, useForm } from "react-hook-form";
 import { ArrowLeft, User, X } from "@phosphor-icons/react";
+import { ResizableDiv, TextHeading } from "@/components";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { LoginService, RestoreService } from "@/api";
-import { ResizableDiv, TextHeading } from "@/components";
+import { useTranslations } from "next-intl";
 import { toast } from "sonner";
 import {
   Input,
@@ -22,6 +23,8 @@ import {
 export default function LoginModal(): ReactNode {
   // Hooks
   const { isOpen, onClose, onOpenChange } = useDisclosure();
+  const commons = useTranslations("Common");
+  const t = useTranslations("Modal.Login");
 
   // State
   const [resetPassword, setResetPassword] = useState<boolean>(false);
@@ -49,6 +52,10 @@ export default function LoginModal(): ReactNode {
   const { email: rEmail } = restoreformState.errors;
 
   // Functions
+  function goBack(): void {
+    setResetPassword((old) => !old);
+  }
+
   function handleSyntheticSubmit(): void {
     const curr = formRef.current;
     if (curr) curr.dispatchEvent(new Event("submit", { bubbles: true, cancelable: true }));
@@ -100,7 +107,7 @@ export default function LoginModal(): ReactNode {
 
   return (
     <>
-      <Button color="primary" variant="light" isIconOnly size="sm">
+      <Button color="primary" variant="light" isIconOnly size="sm" onPress={onOpenChange}>
         <User size={20} />
       </Button>
       <Modal hideCloseButton backdrop="blur" size="md" placement="auto" isOpen={isOpen} onOpenChange={onClose}>

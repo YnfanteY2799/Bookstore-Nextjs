@@ -9,7 +9,7 @@ export { default as ThemeSwitcher } from "./Switchers/Theme.tsx";
 
 /* Modals */
 export { default as AddBookModal } from "./Modals/AddBook.tsx";
-export { default as LoginModal } from "./Modals/Login.tsx";
+export { default as LoginModal } from "./Modals/Login/Modal.tsx";
 /* Modals */
 
 /* UI => This components cannot be set separated on their own folder due to their simplisiness */
