@@ -1,5 +1,4 @@
 "use client";
-
 import { type ReactNode, useState, useRef, useEffect } from "react";
 import { MagnifyingGlass } from "@phosphor-icons/react";
 import { Input, Button } from "@nextui-org/react";
@@ -25,8 +24,8 @@ export default function FilterSearchbar(): ReactNode {
     <div className="flex items-center space-x-1">
       <div
         ref={searchContainerRef}
-        className={`overflow-hidden transition-all duration-300 ease-in-out ${isExpanded ? "opacity-100" : "opacity-0"}`}
         style={{ width: isExpanded ? "auto" : "0px" }}
+        className={`overflow-hidden transition-all duration-300 ease-in-out ${isExpanded ? "opacity-100" : "opacity-0"}`}
       >
         <Input
           size="sm"

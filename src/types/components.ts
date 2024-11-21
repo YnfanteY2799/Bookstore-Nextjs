@@ -25,3 +25,14 @@ export interface IGenericIconSvg {
   size?: number;
   className?: string;
 }
+
+export interface IBookCardProps {
+  id: number;
+  year: number;
+  title: string;
+  author: string;
+  rating?: number;
+  totalLikes: number;
+  coverImage?: string;
+  genre: Array<string>;
+}
