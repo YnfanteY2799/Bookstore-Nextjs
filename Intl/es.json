@@ -1,33 +1,62 @@
 {
      "Lang": "Español",
-     "Common": {
-          "Form_Labels": {
-               "PassKeyLogin": "Iniciar Sesion con una llave de acceso",
-               "forgot": "Recupera tu contraseña",
-               "email": "Correo Electrónico",
-               "login": "Iniciar Sesion",
-               "password": "Contraseña",
-               "Or": "O"
-          },
-          "Errors": {
-               "tmr": "Demasiadas llamadas",
-               "emerror": "Porfavor provea un Correo Electrónico valido!",
-               "pwerror": "La contraseña provista no es valida"
-          },
+     "Navbar": {
+          "Dropdown": {
+               "login": "Inicia sesión",
+               "register": "Registrate!"
+          }
+     },
+     "Status": {
+          "loading": "Cargando",
+          "welcome": "Bienvenido, {username} !"
+     },
+     "Footer": {
+          "": ""
+     },
+     "Errors": {
+          "emerror": "Porfavor provea un Correo Electrónico valido!",
+          "pnerror": "Porfavor provea un Numero Telefonico valido!",
+          "pwerror": "La contraseña provista no es valida",
+          "flnerror": "Porfavor provea un Nombre valido",
+          "fnerror": "Porfavor provea un Nombre valido",
+          "lnerror": "Porfavor provea un Apellido valido",
+          "nacerror": "Porfavor provea una Nacionalidad valida",
+          "pwnomatcherror": "Las contraseñas no coinciden"
+     },
+     "Form_Labels": {
+          "confirm_email": "Confirma el correo electrónico",
+          "RegisterInfoTitle": "Informacion del Registro!",
+          "confirm_password": "Confirma la contraseña",
+          "phone_number": "Número de teléfono",
+          "full_name": "Nombre Completo",
+          "email": "Correo Electrónico",
+          "nationality": "Nacionalidad",
+          "last_name": "Apellidos",
+          "first_name": "Nombres",
+          "password": "Contraseña"
+     },
+     "Modal": {
           "Login": {
-               "AlterLogin": " ¿ No tienes una cuenta aun ?",
-               "forgotenPassword": "¿Olvidó su contraseña?",
-               "WelcomeBack": "Bienvenido",
-               "signup": "Registrate"
+               "notAccountYet": "Aun no tienes una cuenta ?",
+               "forgot": "¿Olvidó su contraseña?",
+               "welcome": "Bienvenido otra vez!",
+               "recover": "Recupera tu cuenta!",
+               "initialText": "Inicia sesión",
+               "recoverText": "Recuperar",
+               "login": "Iniciar Sesión",
+               "remember": "Recuérdame!",
+               "register": "Registrate!",
+               "or": "O"
           },
-          "Status": {
-               "loading": "Cargando",
-               "success_action": "Accion Éxitosa",
-               "welcome": "Bienvenido otra vez, {username} !"
-          },
-          "Langs": {
-               "en": "Ingles",
-               "es": "Español"
+          "Register": {
+               "continueFacebook": "Continua con Facebook",
+               "alreadyAccount": "Ya tienes una cuenta ?",
+               "continueGoogle": "Continua con Google",
+               "welcome": "Bienvenido a tu libreria!",
+               "initialText": "Regístrate",
+               "login": "Inicia Sesión!",
+               "continue": "Continuar!",
+               "or": "O"
           }
      }
 }

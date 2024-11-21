@@ -1,6 +1,10 @@
+import withNextInt from "next-intl/plugin";
+
 import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {
+const withNextIntl = withNextInt();
+
+const nextConfig: NextConfig = withNextIntl({
   /* config options here */
   redirects: async () => [
     {
@@ -9,6 +13,6 @@ const nextConfig: NextConfig = {
       destination: "/Home",
     },
   ],
-};
+});
 
 export default nextConfig;

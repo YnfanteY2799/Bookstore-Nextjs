@@ -1,32 +1,58 @@
 {
      "Lang": "English",
-     "Common": {
-          "Form_Labels": {
-               "Or": "Or",
-               "email": "Email",
-               "login": "Login",
-               "password": "Password",
-               "forgot": "Recover your password",
-               "PassKeyLogin": "Login with a Pass key"
-          },
-          "Errors": {
-               "tmr": "Too many requests",
-               "emerror": "The provided email is not valid!",
-               "pwerror": "The provided password is not valid!"
-          },
+     "Navbar": {
+          "Dropdown": {
+               "register": "Register!",
+               "login": "Log in!"
+          }
+     },
+     "Status": {
+          "loading": "Loading",
+          "welcome": "Welcome Back {username} !"
+     },
+     "Footer": {},
+     "Errors": {
+          "pnerror": "Please provide a valid Phone Number!",
+          "pwerror": "The provided password is not valid!",
+          "flnerror": "Please provide a valid Full Name!",
+          "emerror": "Please provide a valid Email!",
+          "fnerror": "Please provide a valid First Name!",
+          "lnerror": "Please provide a valid Last Name!",
+          "nacerror": "Please provide a valid Nacionality!",
+          "pwnomatcherror": "The Provided Passwords do not Match"
+     },
+     "Form_Labels": {
+          "RegisterInfoTitle": "Registration Info!",
+          "confirm_password": "Confirm Password",
+          "confirm_email": "Confirm Email",
+          "phone_number": "Phone Number",
+          "nationality": "Nationality",
+          "first_name": "First Name",
+          "full_name": "Full Name",
+          "last_name": "Last Name",
+          "password": "Password",
+          "email": "Email"
+     },
+     "Modal": {
           "Login": {
-               "AlterLogin": "Don't you have an Account yet ?",
-               "forgotenPassword": "Forgot your password?",
-               "WelcomeBack": "Welcome Back",
-               "signup": "Sign Up"
+               "notAccountYet": "Don't you have an account yet?",
+               "recover": "Recover your account!",
+               "forgot": "Forgot your password?",
+               "register": "Create an Account!",
+               "remember": "Remember me!",
+               "welcome": "Welcome Back!",
+               "recoverText": "Recover",
+               "initialText": "Log In",
+               "login": "Log in!",
+               "or": "Or"
           },
-          "Status": {
-               "loading": "Loading",
-               "welcome": "Welcome Back {username}!"
-          },
-          "Langs": {
-               "en": "English",
-               "es": "Spanish"
+          "Register": {
+               "alreadyAccount": "Already have an Account ?",
+               "welcome": "Welcome to your Bookstore",
+               "initialText": "Register",
+               "continue": "Continue!",
+               "login": "Login!",
+               "or": "Or"
           }
      }
 }
