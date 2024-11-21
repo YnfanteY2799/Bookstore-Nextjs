@@ -3,7 +3,7 @@ import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { NextUIProvider } from "@nextui-org/react";
 import { Toaster } from "sonner";
 
-import type { RSC } from "@/types/client";
+import type { RSC } from "@/types";
 import type { ReactNode } from "react";
 
 export default function ThemeProvider({ children }: RSC): ReactNode {

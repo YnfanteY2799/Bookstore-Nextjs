@@ -14,3 +14,9 @@ export interface IBaseComponent {
   className?: string;
   children?: ReactNode;
 }
+
+export interface ITextHeadingProps {
+  title?: string;
+  subTitle?: string;
+  isCenter?: boolean;
+}

@@ -2,7 +2,7 @@
 import { useMeasure } from "@/utils";
 import { motion } from "framer-motion";
 
-import type { IBaseComponent } from "@/types/client";
+import type { IBaseComponent } from "@/types";
 import type { ReactNode } from "react";
 
 export default function ResiableDiv({ children, className }: IBaseComponent): ReactNode {

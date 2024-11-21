@@ -12,6 +12,9 @@ export { default as AddBookModal } from "./Modals/AddBook.tsx";
 export { default as LoginModal } from "./Modals/Login.tsx";
 /* Modals */
 
-export { default as Footer } from "./Footer/index.tsx";
-export { default as Navbar } from "./Navbar/index.tsx";
+/* UI => This components cannot be set separated on their own folder due to their simplisiness */
+export { default as TextHeading } from "./ui/TextHeading.tsx";
 export { default as Filters } from "./Filters/index.tsx";
+export { default as Footer } from "./ui/Footer.tsx";
+export { default as Navbar } from "./ui/Navbar.tsx";
+/* UI */

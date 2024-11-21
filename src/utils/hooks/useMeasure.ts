@@ -2,7 +2,7 @@
 import useIsomorphicLayoutEffect from "./useIsoLayout.ts";
 import { useMemo, useState } from "react";
 
-import type { UseMeasureRect, UseMeasureResult } from "@/types/client";
+import type { UseMeasureRect, UseMeasureResult } from "@/types/index.ts";
 
 const defaultState: UseMeasureRect = {
   x: 0,

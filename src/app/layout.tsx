@@ -4,7 +4,7 @@ import "@/css/globals.css";
 import clsx from "clsx";
 
 import type { Metadata, Viewport } from "next";
-import type { RSC } from "@/types/client";
+import type { RSC } from "@/types";
 import type { ReactNode } from "react";
 
 export const metadata: Metadata = {
