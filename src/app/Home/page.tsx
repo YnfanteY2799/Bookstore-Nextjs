@@ -1,8 +1,7 @@
 "use client";
-
 import { Card, CardBody, CardHeader, Image } from "@nextui-org/react";
 import { type ReactNode, useState } from "react";
-import { Filters } from "@/components";
+import { AddBookModal, Filters } from "@/components";
 
 const books = [
   { id: 1, title: "The Great Gatsby", author: "F. Scott Fitzgerald", price: 10.99, category: "Classic" },
@@ -14,15 +13,7 @@ const books = [
 ];
 
 export default function HomePage(): ReactNode {
-  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
-  const [priceRange, setPriceRange] = useState([0, 20]);
-
-  const filteredBooks = books.filter(
-    (book) =>
-      (selectedCategories.length === 0 || selectedCategories.includes(book.category)) &&
-      book.price >= priceRange[0] &&
-      book.price <= priceRange[1]
-  );
+  const [filteredBooks, setFilteredBooks] = useState<any[]>(books);
 
   function onFilter(key?: any) {}
 
@@ -31,7 +22,11 @@ export default function HomePage(): ReactNode {
       <div className="flex-grow justify-center">
         <div className="mb-8 flex justify-between">
           <p className="text-3xl font-bold">Featured Books</p>
-          <Filters onFilter={onFilter} />
+
+          <div className="flex gap-2">
+            <Filters onFilter={onFilter} />
+            <AddBookModal />
+          </div>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-6">
           {filteredBooks.map((book) => (
@@ -44,10 +39,11 @@ export default function HomePage(): ReactNode {
                   src="https://nextui.org/images/hero-card-complete.jpeg"
                 />
               </CardHeader>
-              <CardBody className="overflow-visible py-2">
+              <CardBody className="overflow-visible py-2 ml-4">
+                <h4 className="font-bold text-large">Frontend Radio</h4>
                 <p className="text-tiny uppercase font-bold">Daily Mix</p>
                 <small className="text-default-500">12 Tracks</small>
-                <h4 className="font-bold text-large">Frontend Radio</h4>
+                <small className="text-default-400">12 Tracks</small>
               </CardBody>
             </Card>
           ))}
