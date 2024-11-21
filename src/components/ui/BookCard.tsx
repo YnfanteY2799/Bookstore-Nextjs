@@ -1,16 +1,19 @@
 "use client";
-import { Card, CardHeader, CardBody, Image } from "@nextui-org/react";
+import { Card, CardHeader, CardBody, Image, Button } from "@nextui-org/react";
 import { Link } from "@/i18n/routing";
 
 import type { IBookCardProps } from "@/types";
 import type { ReactNode } from "react";
+import { Heart } from "@phosphor-icons/react";
 
 export default function BookCard(props: IBookCardProps): ReactNode {
   // Props
   const { id, author, title, genre, year, totalLikes, coverImage, rating } = props;
 
+  console.log(coverImage);
+
   return (
-    <Card className="py-4" key={id} isPressable>
+    <Card className="py-4" key={id} isPressable as="div">
       <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
         <Image
           width={570}
