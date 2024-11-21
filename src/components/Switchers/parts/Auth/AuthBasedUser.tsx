@@ -1,4 +1,5 @@
 "use client";
+import { useLoginModal } from "@/utils";
 import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, User, Button } from "@nextui-org/react";
 import { SignOut, User as UserIcon, UserPlus, UserSquare } from "@phosphor-icons/react";
 import { useTranslations } from "next-intl";
@@ -6,6 +7,7 @@ import { type ReactNode } from "react";
 
 export default function AuthBasedUser(): ReactNode {
   // Hooks
+  const { onOpen: onLoginOpen } = useLoginModal((s) => s);
   const t = useTranslations("Actions");
   const isLogged = false;
 
@@ -35,7 +37,7 @@ export default function AuthBasedUser(): ReactNode {
         </Button>
       </DropdownTrigger>
       <DropdownMenu aria-label="Static Actions" variant="bordered">
-        <DropdownItem key="login" color="primary" endContent={<UserIcon size={18} />}>
+        <DropdownItem key="login" color="primary" endContent={<UserIcon size={18} />} onPress={onLoginOpen}>
           {t("login")}
         </DropdownItem>
         <DropdownItem key="register" color="warning" endContent={<UserPlus size={18} />}>

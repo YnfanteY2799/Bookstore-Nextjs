@@ -1,4 +1,4 @@
-import { AuthBasedUser, LangSwitcher, ThemeSwitcher } from "@/components";
+import { AuthBasedUser, LangSwitcher, LoginModal, ThemeSwitcher } from "@/components";
 import Link from "next/link";
 
 import { ReactNode } from "react";
@@ -17,6 +17,8 @@ export default function Navbar(): ReactNode {
           <AuthBasedUser />
         </div>
       </nav>
+
+      <LoginModal />
     </header>
   );
 }
