@@ -1,0 +1,33 @@
+{
+     "Lang": "Español",
+     "Common": {
+          "Form_Labels": {
+               "PassKeyLogin": "Iniciar Sesion con una llave de acceso",
+               "forgot": "Recupera tu contraseña",
+               "email": "Correo Electrónico",
+               "login": "Iniciar Sesion",
+               "password": "Contraseña",
+               "Or": "O"
+          },
+          "Errors": {
+               "tmr": "Demasiadas llamadas",
+               "emerror": "Porfavor provea un Correo Electrónico valido!",
+               "pwerror": "La contraseña provista no es valida"
+          },
+          "Login": {
+               "AlterLogin": " ¿ No tienes una cuenta aun ?",
+               "forgotenPassword": "¿Olvidó su contraseña?",
+               "WelcomeBack": "Bienvenido",
+               "signup": "Registrate"
+          },
+          "Status": {
+               "loading": "Cargando",
+               "success_action": "Accion Éxitosa",
+               "welcome": "Bienvenido otra vez, {username} !"
+          },
+          "Langs": {
+               "en": "Ingles",
+               "es": "Español"
+          }
+     }
+}

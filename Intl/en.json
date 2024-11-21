@@ -1,0 +1,32 @@
+{
+     "Lang": "English",
+     "Common": {
+          "Form_Labels": {
+               "Or": "Or",
+               "email": "Email",
+               "login": "Login",
+               "password": "Password",
+               "forgot": "Recover your password",
+               "PassKeyLogin": "Login with a Pass key"
+          },
+          "Errors": {
+               "tmr": "Too many requests",
+               "emerror": "The provided email is not valid!",
+               "pwerror": "The provided password is not valid!"
+          },
+          "Login": {
+               "AlterLogin": "Don't you have an Account yet ?",
+               "forgotenPassword": "Forgot your password?",
+               "WelcomeBack": "Welcome Back",
+               "signup": "Sign Up"
+          },
+          "Status": {
+               "loading": "Loading",
+               "welcome": "Welcome Back {username}!"
+          },
+          "Langs": {
+               "en": "English",
+               "es": "Spanish"
+          }
+     }
+}
