@@ -12,3 +12,12 @@ export const RecoverFormSchema = z.object({
 });
 
 export type TRecoverFS = z.infer<typeof RecoverFormSchema>;
+
+export const RegisterModalFormSchema = z.object({
+  email: z.string().email("emerror").min(1, "emerror"),
+  phoneNumber: z.string().min(1, "pnerror"),
+});
+
+export type TypeRegisterMFS = z.infer<typeof RegisterModalFormSchema>;
+
+export const RegisterFormSchema = z.object({});
