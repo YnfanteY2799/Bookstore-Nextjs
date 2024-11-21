@@ -17,6 +17,7 @@ model User {
   id              Int       @id @default(autoincrement()) @db.Integer
   username        String    @db.VarChar(255)
   email           String    @unique @db.VarChar(255)
+  verified_email  Boolean   @default(false) @db.Boolean
   hashed_password String    @db.VarChar(255)
   favorite_books  Book[]
   create_time     DateTime? @default(now()) @db.Date
