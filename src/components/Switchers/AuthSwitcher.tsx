@@ -1,5 +1,5 @@
 import { type AbstractIntlMessages, NextIntlClientProvider, useLocale, useMessages } from "next-intl";
-import LangSelectSwitcher from "./parts/Lang/Lang.tsx";
+import AuthBasedUser from "./parts/Auth/AuthBasedUser.tsx";
 import { ReactNode } from "react";
 
 export default function LangSwitcher(): ReactNode {
@@ -9,7 +9,7 @@ export default function LangSwitcher(): ReactNode {
 
   return (
     <NextIntlClientProvider messages={Common as AbstractIntlMessages} locale={locale}>
-      <LangSelectSwitcher />
+      <AuthBasedUser />
     </NextIntlClientProvider>
   );
 }
