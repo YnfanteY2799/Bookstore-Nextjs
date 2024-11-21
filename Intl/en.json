@@ -6,6 +6,12 @@
                "login": "Log in!"
           }
      },
+     "Common": {
+          "Langs": {
+               "en": "English",
+               "es": "Spanish"
+          }
+     },
      "Status": {
           "loading": "Loading",
           "welcome": "Welcome Back {username} !"

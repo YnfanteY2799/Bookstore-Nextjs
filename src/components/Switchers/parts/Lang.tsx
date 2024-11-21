@@ -3,7 +3,7 @@ import { Dropdown, DropdownTrigger, Button, DropdownMenu, DropdownItem } from "@
 import { locales, usePathname, useRouter } from "@/i18n/routing";
 import { type Key, type ReactNode, useTransition } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import FlagIcons from "./parts/FlagIcons.tsx";
+import FlagIcons from "./FlagIcons.tsx";
 
 export default function LangSelectSwitcher(): ReactNode {
   const [isPending, startTransition] = useTransition();

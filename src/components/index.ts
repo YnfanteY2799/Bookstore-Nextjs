@@ -4,8 +4,8 @@ export { default as ResizableDiv } from "./Providers/ResizableDiv.tsx";
 /* Providers */
 
 /* Switchers */
+export { default as LangSwitcher } from "./Switchers/LangSwitcher.tsx";
 export { default as ThemeSwitcher } from "./Switchers/Theme.tsx";
-export { default as LangSwitcher } from "./Switchers/Lang.tsx";
 /* Switchers */
 
 /* Modals */

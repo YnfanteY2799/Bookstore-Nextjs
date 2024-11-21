@@ -1,5 +1,11 @@
 {
      "Lang": "Español",
+     "Common": {
+          "Langs": {
+               "en": "Ingles",
+               "es": "Español"
+          }
+     },
      "Navbar": {
           "Dropdown": {
                "login": "Inicia sesión",
