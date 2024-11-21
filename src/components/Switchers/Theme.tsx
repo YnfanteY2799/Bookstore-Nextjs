@@ -18,7 +18,7 @@ export default function ThemeSwitcher(): ReactNode {
   return (
     <Button onClick={toggleTheme} isIconOnly className="transition-colors duration-300" size="sm" variant="light">
       <motion.div animate={{ rotate: isDark ? 0 : 360 }} transition={{ duration: 0.5, ease: "easeInOut" }}>
-        {isDark ? <Moon className="text-primary" size={20} /> : <Sun className="text-primary" size={20} />}
+        {isDark ? <Moon className="text-primary" size={18} /> : <Sun className="text-primary" size={18} />}
       </motion.div>
     </Button>
   );

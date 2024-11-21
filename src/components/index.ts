@@ -4,6 +4,7 @@ export { default as ResizableDiv } from "./Providers/ResizableDiv.tsx";
 /* Providers */
 
 /* Switchers */
+export { default as AuthBasedUser } from "./Switchers/AuthBasedUser.tsx";
 export { default as LangSwitcher } from "./Switchers/LangSwitcher.tsx";
 export { default as ThemeSwitcher } from "./Switchers/Theme.tsx";
 /* Switchers */

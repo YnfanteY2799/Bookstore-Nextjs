@@ -1,4 +1,4 @@
-import { LangSwitcher, ThemeSwitcher } from "@/components";
+import { AuthBasedUser, LangSwitcher, ThemeSwitcher } from "@/components";
 import Link from "next/link";
 
 import { ReactNode } from "react";
@@ -11,9 +11,10 @@ export default function Navbar(): ReactNode {
           Minimalist Books
         </Link>
 
-        <div className="space-x-4">
+        <div className="space-x-2">
           <ThemeSwitcher />
           <LangSwitcher />
+          <AuthBasedUser />
         </div>
       </nav>
     </header>
