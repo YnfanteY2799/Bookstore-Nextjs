@@ -18,7 +18,12 @@
           "Errors": {
                "pwnomatcherror": "The Provided Passwords do not Match",
                "pwerror": "The provided password is not valid!",
-               "emerror": "Please provide a valid Email!"
+               "emerror": "Please provide a valid Email!",
+               "unerror": "Please provide a valid Username!",
+               "pwminerr": "Password must have minimun 8 characters!",
+               "pwmoneletternerr": "Password must have at leat 1 letter!",
+               "pwmonenumbernerr": "Password must have at leat 1 number!",
+               "pwmonespecnerr": "Password must have at leat 1 special character!"
           },
           "Form_Labels": {
                "RegisterInfoTitle": "Registration Info!",
@@ -33,7 +38,7 @@
                "notAccountYet": "Don't you have an account yet?",
                "recover": "Recover your account!",
                "forgot": "Forgot your password?",
-               "register": "Create an Account!",
+               "register": "Register!",
                "remember": "Remember me!",
                "welcome": "Welcome Back!",
                "recoverText": "Recover",

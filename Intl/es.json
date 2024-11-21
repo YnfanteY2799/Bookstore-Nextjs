@@ -17,8 +17,13 @@
           },
           "Errors": {
                "emerror": "Porfavor provea un Correo Electrónico valido!",
+               "unerror": "Porfavor provea un Nombre de usuario valido!",
                "pwerror": "La contraseña provista no es valida",
-               "pwnomatcherror": "Las contraseñas no coinciden"
+               "pwnomatcherror": "Las contraseñas no coinciden",
+               "pwminerr": "La contraseña debe de tener minimo 8 caracteres!",
+               "pwmoneletternerr": "La contraseña debe de tener minimo 1 letra!",
+               "pwmonenumbernerr": "La contraseña debe de tener minimo 1 numbero!",
+               "pwmonespecnerr": "La contraseña debe de tener minimo 1 caracter especial!"
           },
           "Form_Labels": {
                "confirm_email": "Confirma el correo electrónico",

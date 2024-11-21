@@ -1,6 +1,7 @@
 import { type AbstractIntlMessages, NextIntlClientProvider, useLocale, useMessages } from "next-intl";
 import LangSelectSwitcher from "./parts/Lang/Lang.tsx";
-import { ReactNode } from "react";
+
+import type { ReactNode } from "react";
 
 export default function LangSwitcher(): ReactNode {
   // Hooks

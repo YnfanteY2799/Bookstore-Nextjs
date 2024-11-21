@@ -3,7 +3,8 @@ import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, User, Button } f
 import { SignOut, User as UserIcon, UserPlus, UserSquare } from "@phosphor-icons/react";
 import { useLoginModal, useRegisterModal } from "@/utils/client";
 import { useTranslations } from "next-intl";
-import { type ReactNode } from "react";
+
+import type { ReactNode } from "react";
 
 export default function AuthBasedUser(): ReactNode {
   // Hooks

@@ -1,6 +1,7 @@
 import { type AbstractIntlMessages, NextIntlClientProvider, useLocale, useMessages } from "next-intl";
 import AuthBasedUser from "./parts/Auth/AuthBasedUser.tsx";
-import { ReactNode } from "react";
+
+import type { ReactNode } from "react";
 
 export default function LangSwitcher(): ReactNode {
   // Hooks
