@@ -5,12 +5,19 @@ export { default as ResizableDiv } from "./Providers/ResizableDiv.tsx";
 
 /* Switchers */
 export { default as ThemeSwitcher } from "./Switchers/Theme.tsx";
+export { default as LangSwitcher } from "./Switchers/Lang.tsx";
 /* Switchers */
 
 /* Modals */
 export { default as AddBookModal } from "./Modals/AddBook.tsx";
 export { default as LoginModal } from "./Modals/Login/Modal.tsx";
 /* Modals */
+
+/* Svgs */
+export { default as NortAmericanFlag } from "./svg/NortAmericanFlag.tsx";
+export { default as SpainFlag } from "./svg/SpainFlag.tsx";
+
+/* Svgs */
 
 /* UI => This components cannot be set separated on their own folder due to their simplisiness */
 export { default as TextHeading } from "./ui/TextHeading.tsx";

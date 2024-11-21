@@ -1,4 +1,4 @@
-import { ThemeSwitcher } from "@/components";
+import { LangSwitcher, ThemeSwitcher } from "@/components";
 import Link from "next/link";
 
 import { ReactNode } from "react";
@@ -13,6 +13,7 @@ export default function Navbar(): ReactNode {
 
         <div className="space-x-4">
           <ThemeSwitcher />
+          <LangSwitcher />
         </div>
       </nav>
     </header>
