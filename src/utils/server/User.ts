@@ -12,7 +12,9 @@ export async function createUser({ username, email, password }: TypeRegisterMFS)
         hashed_password: await hashPassword(password),
       },
     });
-    if (!newUser) return;
+    if (!newUser) return ;
     return { username };
-  } catch (e) {}
+  } catch (e) {
+     console.log(e);
+  }
 }

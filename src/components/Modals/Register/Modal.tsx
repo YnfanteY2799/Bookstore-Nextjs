@@ -8,6 +8,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl";
 import { ResizableDiv } from "@/components";
 import { X } from "@phosphor-icons/react";
+import { RegisterService } from "@/api";
+import { toast } from "sonner";
 
 export default function RegisterModal(): ReactNode {
   // Hooks
@@ -44,10 +46,15 @@ export default function RegisterModal(): ReactNode {
   }
 
   // Form handle
-  const onSubmit: SubmitHandler<TypeRegisterMFS> = async ({ email, password, username }) => {
-    const encodedData = encodeURIComponent(`${email}||${password}`);
-
-    onClose();
+  const onSubmit: SubmitHandler<TypeRegisterMFS> = async (data) => {
+    // setIsLoading(true);
+    toast.promise(RegisterService(data), {
+      loading: commons("Status.loading"),
+      success: (response) => {
+        onClose();
+        return commons("Status.welcome", { username: response.username });
+      },
+    });
   };
 
   return (
@@ -67,7 +74,7 @@ export default function RegisterModal(): ReactNode {
                 <form
                   ref={formRef}
                   onSubmit={handleSubmit(onSubmit)}
-                  className="flex flex-col gap-[8px] transition-height py-[2px]"
+                  className="flex flex-col gap-[10px] transition-height py-[2px]"
                 >
                   <Input
                     size="lg"

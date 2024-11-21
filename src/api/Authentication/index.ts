@@ -12,5 +12,7 @@ export async function RegisterService(data: TypeRegisterMFS): Promise<any> {
     const user = await createUser(data);
 
     console.log({ user });
-  } catch (e) {}
+  } catch (e) {
+    console.log(e);
+  }
 }
