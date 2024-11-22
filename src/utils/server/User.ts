@@ -6,15 +6,11 @@ import type { TypeRegisterMFS } from "@/configs";
 export async function createUser({ username, email, password }: TypeRegisterMFS): Promise<any> {
   try {
     const newUser = await prisma.user.create({
-      data: {
-        email,
-        username,
-        hashed_password: await hashPassword(password),
-      },
+      data: { email, username, hashed_password: await hashPassword(password) },
     });
-    if (!newUser) return ;
+    if (!newUser) throw new Error("uscrerr");
     return { username };
   } catch (e) {
-     console.log(e);
+    return e;
   }
 }

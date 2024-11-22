@@ -1,6 +1,6 @@
 "use client";
 import { type ReactNode, useState, useRef, useEffect } from "react";
-import { MagnifyingGlass } from "@phosphor-icons/react";
+import { MagnifyingGlass, X } from "@phosphor-icons/react";
 import { Input, Button } from "@nextui-org/react";
 
 export default function FilterSearchbar(): ReactNode {
@@ -14,6 +14,12 @@ export default function FilterSearchbar(): ReactNode {
 
   // Functions
   const toggleSearchbar = () => setIsExpanded((old) => !old);
+
+  function handleKeyDown() {}
+
+  function handleQuery() {
+    alert(searchQuery);
+  }
 
   // Use Effect
   useEffect(() => {
@@ -30,13 +36,24 @@ export default function FilterSearchbar(): ReactNode {
         <Input
           size="sm"
           type="text"
-          color="primary"
+          color="default"
           value={searchQuery}
           className="w-full"
           aria-label="Filter"
           ref={searchInputRef}
           placeholder="Filter..."
-          onChange={(e) => setSearchQuery(e.target.value)}
+          onKeyDown={handleKeyDown}
+          onValueChange={(e) => setSearchQuery(e)}
+          endContent={
+            <Button
+              size="sm"
+              isIconOnly
+              variant="light"
+              color="success"
+              onPress={handleQuery}
+              children={<MagnifyingGlass size={18} />}
+            />
+          }
         />
       </div>
       <Button
@@ -47,7 +64,7 @@ export default function FilterSearchbar(): ReactNode {
         onPress={toggleSearchbar}
         aria-label={isExpanded ? "Close search" : "Open search"}
       >
-        <MagnifyingGlass size={20} />
+        {isExpanded ? <X size={20} /> : <MagnifyingGlass size={20} />}
       </Button>
     </div>
   );
