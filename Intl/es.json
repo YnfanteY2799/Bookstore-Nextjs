@@ -16,6 +16,7 @@
                "welcome": "Bienvenido, {username} !"
           },
           "Errors": {
+               "uswcerror": "Contraseña Incorrecta!",
                "pwerror": "La contraseña provista no es valida",
                "pwnomatcherror": "Las contraseñas no coinciden",
                "errpwnm": "La contraseñas provista no son iguales",

@@ -16,12 +16,13 @@
                "welcome": "Welcome Back {username} !"
           },
           "Errors": {
-               "pwnomatcherror": "The Provided Passwords do not Match",
+               "uswcerror": "Wrong user password!",
                "emerror": "Please provide a valid Email!",
                "unerror": "Please provide a valid Username!",
                "pwerror": "The provided password is not valid!",
                "errpwnm": "The provided passwords does not match!",
                "pwminerr": "Password must have minimun 8 characters!",
+               "pwnomatcherror": "The Provided Passwords do not Match",
                "pwmoneletternerr": "Password must have at leat 1 letter!",
                "pwmonenumbernerr": "Password must have at leat 1 number!",
                "errdbcon": "Error connecting to DB, please try again later",
