@@ -6,7 +6,7 @@ const prisma = new PrismaClient();
 async function main() {
   try {
     const authorSeeds = await prisma.authors.createManyAndReturn({
-      data: authors.map((auth) => ({ fore_name: auth.split(" ")[0] ?? "", sur_name: auth.split(" ")[1] ?? "" })),
+      data: authors.map((auth) => ({ full_name: auth })),
       select: { id: true, sur_name: true, fore_name: true },
       skipDuplicates: true,
     });

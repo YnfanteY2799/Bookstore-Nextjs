@@ -34,3 +34,7 @@ export async function hashPassword(password: string): Promise<string> {
 export async function verifyPasswordHash(hash: string, password: string): Promise<boolean> {
   return await verify(hash, password);
 }
+
+export function getCurrentCursorOffSet(id: number): number {
+  return id <= 1 || Number.isNaN(id) ? 0 : id * 10 - 10;
+}
