@@ -31,8 +31,8 @@ export interface IBookCardProps {
   year: number;
   title: string;
   author: string;
+  image?: string;
+  reviews: number;
   rating?: number;
-  totalLikes: number;
-  coverImage?: string;
   genre: Array<string>;
 }

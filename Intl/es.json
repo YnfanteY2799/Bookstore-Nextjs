@@ -31,7 +31,8 @@
                "confirm_password": "Confirma la contraseña",
                "username": "Nombre de usuario",
                "email": "Correo Electrónico",
-               "password": "Contraseña"
+               "password": "Contraseña",
+               "reviews": "Reseñas"
           }
      },
      "Modal": {

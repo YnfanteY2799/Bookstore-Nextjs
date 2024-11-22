@@ -30,7 +30,8 @@
                "confirm_password": "Confirm Password",
                "username": "Username",
                "password": "Password",
-               "email": "Email"
+               "email": "Email",
+               "reviews": "Reviews"
           }
      },
      "Modal": {
