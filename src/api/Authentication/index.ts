@@ -10,7 +10,7 @@ export async function LoginService({ email, password }: TLoginFS): Promise<any> 
     if (!userByEmail) throw new Error("usnferr");
     if (!(await verifyPasswordHash(hashed_password, password))) throw new Error("uswcerror");
 
-    const expires = new Date(Date.now() + 10 * 1000);
+    const expires = new Date(Date.now() + 60 * 60 * 24 * 30);
     const session = await encryptJWT({ userByEmail, expires });
 
     // Save the session in a cookie
@@ -32,7 +32,7 @@ export async function RestoreService({ email }: TRecoverFS): Promise<any> {
 export async function RegisterService(data: TypeRegisterMFS): Promise<any> {
   try {
     const userByEmail = await createUser(data);
-    const expires = new Date(Date.now() + 10 * 1000);
+    const expires = new Date(Date.now() + 60 * 60 * 24 * 30);
     const session = await encryptJWT({ userByEmail, expires });
 
     // Save the session in a cookie
