@@ -19,7 +19,7 @@ export async function generateDate(ammount: number, unit: TimeSpanUnit): Promise
   return createDate(new TimeSpan(ammount, unit));
 }
 
-export async function encryptJWT(payload: { [x: string]: string }): Promise<string> {
+export async function encryptJWT(payload: { [x: string]: any }): Promise<string> {
   return await new SignJWT(payload)
     .setExpirationTime("10 days from now")
     .setProtectedHeader({ alg: "HS256" })

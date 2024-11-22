@@ -79,11 +79,9 @@ export default function LoginModal(): ReactNode {
     setIsLoading(true);
     toast.promise(LoginService(data), {
       loading: commons("Status.loading"),
-      error: (response: Error) => {
-        console.log("blown up", { response });
-        return response.message;
-      },
+      error: (response: Error) => commons(`Errors.${response.message}`),
       success: (response) => {
+        reset();
         onClose();
         return commons("Status.welcome", { username: response.username });
       },
