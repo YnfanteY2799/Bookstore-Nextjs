@@ -1,21 +1,17 @@
-import { type AbstractIntlMessages, NextIntlClientProvider, useLocale, useMessages } from "next-intl";
+import { type AbstractIntlMessages, NextIntlClientProvider } from "next-intl";
+import { books } from "@/utils/client/consts.ts";
+import { getMessages } from "next-intl/server";
 import HomeComponent from "./component.tsx";
 
 import type { ICommonRSCSluggedProps } from "@/types";
 import type { ReactNode } from "react";
-import { books } from "@/utils/client/consts.ts";
 
-export default function HomePage({ searchParams }: ICommonRSCSluggedProps): ReactNode {
-  // Hooks
-  const { query } = searchParams;
-  const { Common } = useMessages();
-
-  const locale = useLocale();
-
-  console.log({ query });
+export default async function HomePage({ searchParams }: ICommonRSCSluggedProps): Promise<ReactNode> {
+  const { query } = await searchParams;
+  const { Common } = await getMessages();
 
   return (
-    <NextIntlClientProvider messages={Common as AbstractIntlMessages} locale={locale}>
+    <NextIntlClientProvider messages={Common as AbstractIntlMessages}>
       <HomeComponent Books={books} />
     </NextIntlClientProvider>
   );
