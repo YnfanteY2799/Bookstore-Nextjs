@@ -17,23 +17,22 @@ async function main() {
       skipDuplicates: true,
     });
 
-    console.log(dummyBooks.map(({ genre }) => genre.map((x) => genresSeeds.find((old) => old.name === x)?.id)));
+    // This code is not suitable for a properly donde Production env : YY
+    const dummyBooksSeeds = await prisma.book.createMany({
+      data: dummyBooks.map(({ coverImage, year, title, genre, description, author }) => {
+        return {
+          title,
+          coverImage,
+          description,
+          totalRating: 0,
+          year: new Date(),
+          genres_ids: genre.map((x) => (genresSeeds.find((old) => old.name === x) ?? { id: 0 }).id),
+          author_id: authorSeeds.find(({ fore_name, sur_name }) => `${fore_name} ${sur_name}` === author)?.id ?? 1,
+        };
+      }),
+    });
 
-    // const dummyBooksSeeds = await prisma.book.createMany({
-    //   data: dummyBooks.map(({ coverImage, year, title, genre, description, author }) => {
-    //     return {
-    //       title,
-    //       coverImage,
-    //       description,
-    //       totalRating: 0,
-    //       year: new Date(year),
-    //       genres_ids: genre.map((x) => genresSeeds.find((old) => old.name === x)?.id) ?? [],
-    //       author_id: authorSeeds.find(({ fore_name, sur_name }) => `${fore_name} ${sur_name}` === author)?.id ?? 1,
-    //     };
-    //   }),
-    // });
-
-    console.log({ authorSeeds, genresSeeds });
+    console.log({ authorSeeds, genresSeeds, dummyBooksSeeds });
 
     return true;
   } catch (e) {
