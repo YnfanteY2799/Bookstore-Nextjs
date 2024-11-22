@@ -48,6 +48,7 @@ model Book {
   year        DateTime            @db.Date
   coverImage  String?             @db.VarChar(255)
   totalRating Int                 @default(0) @db.Integer
+  description String              @db.Text
   author_id   Int                 @db.Integer
   genres_ids  Int[]               @db.Integer
   create_time DateTime?           @default(now()) @db.Date

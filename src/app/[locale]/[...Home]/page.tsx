@@ -7,8 +7,12 @@ import type { ICommonRSCSluggedProps } from "@/types";
 import type { ReactNode } from "react";
 
 export default async function HomePage({ searchParams }: ICommonRSCSluggedProps): Promise<ReactNode> {
-  const { query } = await searchParams;
   const { Common } = await getMessages();
+  const { query } = await searchParams;
+
+  
+
+
 
   return (
     <NextIntlClientProvider messages={Common as AbstractIntlMessages}>
