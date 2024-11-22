@@ -28,7 +28,7 @@ model Authors {
   id          Int       @id @default(autoincrement()) @db.Integer
   fore_name   String    @db.VarChar(255)
   sur_name    String    @db.VarChar(255)
-  birth_date  DateTime
+  birth_date  DateTime  @default(now()) @db.Date
   create_time DateTime? @default(now()) @db.Date
   update_time DateTime? @db.Date
   Books       Book[]
@@ -45,15 +45,15 @@ model Genre {
 model Book {
   id          Int                 @id @default(autoincrement()) @db.Integer
   title       String              @db.VarChar(255)
-  year        DateTime
-  coverImage  String?
-  totalRating Int                 @default(0)
+  year        DateTime            @db.Date
+  coverImage  String?             @db.VarChar(255)
+  totalRating Int                 @default(0) @db.Integer
   author_id   Int                 @db.Integer
-  genres_ids  Int                 @db.Integer
+  genres_ids  Int[]               @db.Integer
   create_time DateTime?           @default(now()) @db.Date
   update_time DateTime?           @db.Date
   Authors     Authors             @relation(fields: [author_id], references: [id], onDelete: Cascade)
-  Genres      Genre               @relation(fields: [genres_ids], references: [id], onDelete: Cascade)
+  Genres      Genre[]
   Reviews     Reviews[]
   FavoritedBy UserFavoriteBooks[]
 }

@@ -36,3 +36,12 @@ export interface IBookCardProps {
   rating?: number;
   genre: Array<string>;
 }
+
+export interface IHomeComponentProps {
+  Books?: Array<IBookCardProps>;
+}
+
+export interface ICommonRSCSluggedProps {
+  params: { slug: string; query: string };
+  searchParams: Promise<{ query: string }>;
+}
