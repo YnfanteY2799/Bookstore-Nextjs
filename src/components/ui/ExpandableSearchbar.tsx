@@ -1,5 +1,5 @@
 "use client";
-import { type ReactNode, useState, useRef, useEffect } from "react";
+import { type ReactNode, type KeyboardEvent, useState, useRef, useEffect } from "react";
 import { MagnifyingGlass, X } from "@phosphor-icons/react";
 import { Input, Button } from "@nextui-org/react";
 
@@ -15,7 +15,9 @@ export default function FilterSearchbar(): ReactNode {
   // Functions
   const toggleSearchbar = () => setIsExpanded((old) => !old);
 
-  function handleKeyDown() {}
+  function handleKeyDown({ code }: KeyboardEvent): void {
+    if (code === "Enter") handleQuery();
+  }
 
   function handleQuery() {
     alert(searchQuery);
