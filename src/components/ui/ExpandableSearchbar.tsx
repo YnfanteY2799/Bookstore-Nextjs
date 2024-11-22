@@ -1,12 +1,19 @@
 "use client";
 import { type ReactNode, type KeyboardEvent, useState, useRef, useEffect } from "react";
 import { MagnifyingGlass, X } from "@phosphor-icons/react";
+import { usePathname, useRouter } from "@/i18n/routing";
 import { Input, Button } from "@nextui-org/react";
+import { useSearchParams } from "next/navigation";
 
 export default function FilterSearchbar(): ReactNode {
+  // Hooks
+  const searchParams = useSearchParams();
+  const { replace } = useRouter();
+  const pathname = usePathname();
+
   // State
-  const [searchQuery, setSearchQuery] = useState("");
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [isExpanded, setIsExpanded] = useState<boolean>(false);
+  const [searchQuery, setSearchQuery] = useState<string>("");
 
   // Ref
   const searchInputRef = useRef<HTMLInputElement>(null);
@@ -20,7 +27,10 @@ export default function FilterSearchbar(): ReactNode {
   }
 
   function handleQuery() {
-    alert(searchQuery);
+    const params = new URLSearchParams(searchParams);
+    if (searchQuery.length > 0) params.set("query", searchQuery);
+    else params.delete("query");
+    replace(`${pathname}?${params.toString()}`);
   }
 
   // Use Effect
