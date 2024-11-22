@@ -3,7 +3,6 @@ import { Card, CardHeader, CardBody, Image, Button, CardFooter } from "@nextui-o
 import { Heart, Star } from "@phosphor-icons/react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
-import NextImage from "next/image";
 
 import type { IBookCardProps } from "@/types";
 import type { ReactNode } from "react";
