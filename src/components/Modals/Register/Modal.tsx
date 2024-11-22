@@ -62,7 +62,7 @@ export default function RegisterModal(): ReactNode {
         return commons("Status.welcome", { username: response.username });
       },
       error: (err) => {
-        onClose();
+        alert(err);
         return "ERR";
       },
     });

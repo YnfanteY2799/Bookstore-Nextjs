@@ -30,7 +30,7 @@ export const RegisterModalFormSchema = z
   })
   .refine(({ confirm_password, password }) => confirm_password === password, {
     message: "errpwnm",
-    path: ["password", "confirm_password"],
+    path: ["confirm_password"],
   });
 
 export type TypeRegisterMFS = z.infer<typeof RegisterModalFormSchema>;
