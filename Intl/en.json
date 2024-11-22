@@ -24,7 +24,9 @@
                "pwminerr": "Password must have minimun 8 characters!",
                "pwmoneletternerr": "Password must have at leat 1 letter!",
                "pwmonenumbernerr": "Password must have at leat 1 number!",
-               "pwmonespecnerr": "Password must have at leat 1 special character!"
+               "errdbcon": "Error connecting to DB, please try again later",
+               "pwmonespecnerr": "Password must have at leat 1 special character!",
+               "uscrerr": "Error creating user, a user with same email or username already exists!"
           },
           "Form_Labels": {
                "RegisterInfoTitle": "Registration Info!",

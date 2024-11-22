@@ -4,10 +4,10 @@ import { type ReactNode, type KeyboardEvent, useRef, useState } from "react";
 import { RegisterModalFormSchema, TypeRegisterMFS } from "@/configs";
 import { useLoginModal, useRegisterModal } from "@/utils/client";
 import { type SubmitHandler, useForm } from "react-hook-form";
+import { Eye, EyeClosed, X } from "@phosphor-icons/react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl";
 import { ResizableDiv } from "@/components";
-import { Eye, EyeClosed, X } from "@phosphor-icons/react";
 import { RegisterService } from "@/api";
 import { toast } from "sonner";
 
@@ -22,6 +22,7 @@ export default function RegisterModal(): ReactNode {
   const formRef = useRef<HTMLFormElement>(null);
 
   // Simple State
+  const [isLoading, setIsLoading] = useState(false);
   const [showPw, setShowPw] = useState(false);
 
   // RHF
@@ -54,18 +55,17 @@ export default function RegisterModal(): ReactNode {
 
   // Form handle
   const onSubmit: SubmitHandler<TypeRegisterMFS> = async (data) => {
-    // setIsLoading(true);
+    setIsLoading(true);
     toast.promise(RegisterService(data), {
       loading: commons("Status.loading"),
+      error: (err: Error) => commons(`Errors.${err.message}`),
       success: (response) => {
+        console.log({ response });
         onClose();
         return commons("Status.welcome", { username: response.username });
       },
-      error: (err) => {
-        alert(err);
-        return "ERR";
-      },
     });
+    setIsLoading(false);
   };
 
   return (
@@ -137,7 +137,14 @@ export default function RegisterModal(): ReactNode {
               </ResizableDiv>
             </ModalBody>
             <ModalFooter className="flex flex-col gap-4">
-              <Button size="md" type="submit" color="primary" className="w-full" onPress={handleSyntheticSubmit}>
+              <Button
+                size="md"
+                type="submit"
+                color="primary"
+                className="w-full"
+                isLoading={isLoading}
+                onPress={handleSyntheticSubmit}
+              >
                 {t("register")}
               </Button>
 

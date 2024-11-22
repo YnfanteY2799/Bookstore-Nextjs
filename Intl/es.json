@@ -24,7 +24,9 @@
                "pwminerr": "La contraseña debe de tener minimo 8 caracteres!",
                "pwmoneletternerr": "La contraseña debe de tener minimo 1 letra!",
                "pwmonenumbernerr": "La contraseña debe de tener minimo 1 numbero!",
-               "pwmonespecnerr": "La contraseña debe de tener minimo 1 caracter especial!"
+               "pwmonespecnerr": "La contraseña debe de tener minimo 1 caracter especial!",
+               "errdbcon": "Error conectandose a la base de datos, por favor intentarlo mas tarde!",
+               "uscrerr": "Error al crear usuario, ya existe un usuario con el mismo correo electrónico o nombre de usuario!"
           },
           "Form_Labels": {
                "confirm_email": "Confirma el correo electrónico",
