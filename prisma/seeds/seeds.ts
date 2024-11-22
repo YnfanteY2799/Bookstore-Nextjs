@@ -7,7 +7,7 @@ async function main() {
   try {
     const authorSeeds = await prisma.authors.createManyAndReturn({
       data: authors.map((auth) => ({ full_name: auth })),
-      select: { id: true, sur_name: true, fore_name: true },
+      select: { id: true, full_name: true },
       skipDuplicates: true,
     });
 
@@ -19,15 +19,15 @@ async function main() {
 
     // This code is not suitable for a properly donde Production env : YY
     const dummyBooksSeeds = await prisma.book.createMany({
-      data: dummyBooks.map(({ coverImage, year, title, genre, description, author }) => {
+      data: dummyBooks.map(({ coverImage, title, genre, description, author }) => {
         return {
           title,
           coverImage,
           description,
           totalRating: 0,
           year: new Date(),
+          author_id: authorSeeds.find(({ full_name }) => full_name === author)?.id ?? 1,
           genres_ids: genre.map((x) => (genresSeeds.find((old) => old.name === x) ?? { id: 0 }).id),
-          author_id: authorSeeds.find(({ fore_name, sur_name }) => `${fore_name} ${sur_name}` === author)?.id ?? 1,
         };
       }),
     });
