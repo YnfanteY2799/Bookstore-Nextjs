@@ -17,9 +17,10 @@
           },
           "Errors": {
                "pwnomatcherror": "The Provided Passwords do not Match",
-               "pwerror": "The provided password is not valid!",
                "emerror": "Please provide a valid Email!",
                "unerror": "Please provide a valid Username!",
+               "pwerror": "The provided password is not valid!",
+               "errpwnm": "The provided passwords does not match!",
                "pwminerr": "Password must have minimun 8 characters!",
                "pwmoneletternerr": "Password must have at leat 1 letter!",
                "pwmonenumbernerr": "Password must have at leat 1 number!",

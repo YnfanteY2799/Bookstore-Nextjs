@@ -16,10 +16,11 @@
                "welcome": "Bienvenido, {username} !"
           },
           "Errors": {
-               "emerror": "Porfavor provea un Correo Electrónico valido!",
-               "unerror": "Porfavor provea un Nombre de usuario valido!",
                "pwerror": "La contraseña provista no es valida",
                "pwnomatcherror": "Las contraseñas no coinciden",
+               "errpwnm": "La contraseñas provista no son iguales",
+               "unerror": "Porfavor provea un Nombre de usuario valido!",
+               "emerror": "Porfavor provea un Correo Electrónico valido!",
                "pwminerr": "La contraseña debe de tener minimo 8 caracteres!",
                "pwmoneletternerr": "La contraseña debe de tener minimo 1 letra!",
                "pwmonenumbernerr": "La contraseña debe de tener minimo 1 numbero!",
