@@ -1,7 +1,8 @@
 "use client";
-import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, User, Button } from "@nextui-org/react";
-import { SignOut, User as UserIcon, UserPlus, UserSquare } from "@phosphor-icons/react";
+import { SignOut, UserCircleDashed, User as UserIcon, UserPlus, UserSquare } from "@phosphor-icons/react";
+import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button } from "@nextui-org/react";
 import { useLoginModal, useRegisterModal } from "@/utils/client";
+import { useRouter } from "@/i18n/routing.ts";
 import { useTranslations } from "next-intl";
 
 import type { ReactNode } from "react";
@@ -11,16 +12,19 @@ export default function AuthBasedUser(): ReactNode {
   const { onOpen: onRegisOpen } = useRegisterModal((s) => s);
   const { onOpen: onLoginOpen } = useLoginModal((s) => s);
   const t = useTranslations("Actions");
-  const isLogged = false;
+  const { push } = useRouter();
+  const isLogged = true;
+
+  function goToMyProfile() {
+    // push({ pathname: "/Profile", query });
+  }
 
   return isLogged ? (
     <Dropdown size="sm">
       <DropdownTrigger>
-        <User
-          name="Jane Doe"
-          description="User"
-          avatarProps={{ size: "sm", src: "https://i.pravatar.cc/150?u=a04258114e29026702d" }}
-        />
+        <Button variant="light" size="sm" className="capitalize" isIconOnly>
+          <UserCircleDashed size={18} />
+        </Button>
       </DropdownTrigger>
       <DropdownMenu aria-label="Static Actions" color="primary" variant="bordered">
         <DropdownItem key="myProfile" color="success" endContent={<UserSquare size={18} />}>
