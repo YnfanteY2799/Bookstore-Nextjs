@@ -13,7 +13,7 @@ export async function deleteBook(): Promise<any> {}
 export async function getBooks(
   name?: string,
   author?: number,
-  genre?: string,
+  genre?: number,
   year?: string,
   page: number = 1
 ): Promise<Array<IBookCardProps>> {
@@ -27,21 +27,32 @@ export async function getBooks(
         description: true,
         Genres: { select: { name: true } },
         Reviews: { select: { rating: true } },
-        Authors: { select: { fore_name: true, sur_name: true } },
+        Authors: { select: { full_name: true } },
       },
       where: {
         title: { contains: name },
         author_id: { equals: author },
-        Genres: { some: { name: genre } },
+     //    Genres: { some: { id: genre } },
       },
-      skip: getCurrentCursorOffSet(page),
+      skip: await getCurrentCursorOffSet(page),
       orderBy: { id: "asc" },
       take: 10,
     });
 
-    
-    return books.map((x) => {
-      return {};
+    console.log({ books });
+
+    return books.map(({ Authors, Genres, Reviews, year, ...common }) => {
+      const reviews = Reviews.reduce((old, { rating }) => old + rating, 0);
+      return {
+        genre: Genres.map((x) => x.name),
+        rating: reviews / Reviews.length,
+        year: new Date(year).toString(),
+        author: Authors.full_name,
+        ...common,
+        reviews,
+      };
     });
-  } catch (e) {}
+  } catch (e) {
+    throw new Error("");
+  }
 }

@@ -28,6 +28,7 @@ async function main() {
           year: new Date(),
           author_id: authorSeeds.find(({ full_name }) => full_name === author)?.id ?? 1,
           genres_ids: genre.map((x) => (genresSeeds.find((old) => old.name === x) ?? { id: 0 }).id),
+          
         };
       }),
     });

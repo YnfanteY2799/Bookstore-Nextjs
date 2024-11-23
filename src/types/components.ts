@@ -28,7 +28,7 @@ export interface IGenericIconSvg {
 
 export interface IBookCardProps {
   id: number;
-  year: number;
+  year: string;
   title: string;
   author: string;
   image?: string;
