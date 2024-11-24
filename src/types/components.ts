@@ -28,7 +28,7 @@ export interface IGenericIconSvg {
 
 export interface IBookCardProps {
   id: number;
-  year: string;
+  year: any;
   title: string;
   author: string;
   image?: string;
@@ -42,6 +42,6 @@ export interface IHomeComponentProps {
 }
 
 export interface ICommonRSCSluggedProps {
-  params: { slug: string; query: string };
+  params: Promise<{ slug: string; query: string }>;
   searchParams: Promise<{ query: string }>;
 }
